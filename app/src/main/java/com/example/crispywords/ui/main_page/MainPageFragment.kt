@@ -133,7 +133,7 @@ class MainPageFragment : Fragment(), Injectable {
     }
 
     private fun setWords()  {
-        Constants.WORDS.forEach { word ->
+        viewModel.getSearchWords().forEach { word ->
             words.put(word, false)
             lettersAdapter?.setWord(word)
         }
