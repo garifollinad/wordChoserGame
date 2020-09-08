@@ -1,5 +1,7 @@
 # wordChoserGame on Android
 
+![Demo](demo.gif)
+
 Features:
 This is a word choser game on 10x10 grid. It has default 6 words: SWIFT, KOTLIN, OBJECTIVEC, VARIABLE, JAVA, MOBILE.
 - It has dynamic feature for adding new words to search list once clicked on "+" plusButton.
