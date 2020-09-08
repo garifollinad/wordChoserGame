@@ -1,6 +1,6 @@
 # wordChoserGame on Android
 
-![Demo](demo.gif){:height="700px" width="400px"}
+![Demo](demo.gif){:height="200px" width="100px"}
 
 Features:
 This is a word choser game on 10x10 grid. It has default 6 words: SWIFT, KOTLIN, OBJECTIVEC, VARIABLE, JAVA, MOBILE.
