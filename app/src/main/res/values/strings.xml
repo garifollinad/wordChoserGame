@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Crispy Words</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="congrats">Congratulations! You have found all the words!</string>
+    <string name="exit">Exit</string>
+    <string name="add">Add new word</string>
+</resources>
