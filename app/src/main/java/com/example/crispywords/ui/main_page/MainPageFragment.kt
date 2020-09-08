@@ -111,12 +111,12 @@ class MainPageFragment : Fragment(), Injectable {
             val newWordListener: NewWordListener = object :
                 NewWordListener {
                 override fun onAddedWord(newWord: String) {
+                    viewModel.addSearchWords(newWord)
                     lettersAdapter?.clearLetters()
                     words = HashMap()
                     lettersAdapter?.clearUsedPosition()
                     setAdapter()
                     wordsContainer.removeAllViews()
-                    viewModel.addSearchWords(newWord)
                     setSearchWords()
                     foundGridLayout.removeViews(1, foundGridLayout.childCount - 1)
                     foundWordsCnt = 0
