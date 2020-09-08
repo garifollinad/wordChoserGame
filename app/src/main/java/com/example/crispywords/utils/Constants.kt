@@ -1,9 +1,6 @@
 package com.example.crispywords.utils
 
 object Constants {
-    val WORDS = arrayOf("SWIFT", "KOTLIN", "OBJECTIVEC",
-        "VARIABLE", "JAVA", "MOBILE")
-    //, "DJANGO", "SPRING", "SHOPIFY")
 
     val LETTERS = arrayOf('A', 'B', 'C', 'D', 'E', 'F', 'G',
         'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S','T',

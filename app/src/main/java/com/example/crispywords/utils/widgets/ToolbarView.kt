@@ -2,6 +2,7 @@ package com.example.crispywords.utils.widgets
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -38,6 +39,11 @@ class ToolbarView : LinearLayout {
 
     fun setToolbarText(title: String) {
         tvTitleToolbar.text = title
+    }
+
+    fun invisibleRefreshAndAdd() {
+        ivRefresh.visibility = View.GONE
+        tvAdd.visibility = View.GONE
     }
 
     private fun init(context: Context) {

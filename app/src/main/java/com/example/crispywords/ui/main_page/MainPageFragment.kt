@@ -14,10 +14,15 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.os.bundleOf
 import androidx.core.view.size
 import androidx.lifecycle.ViewModelProvider
 import com.example.crispywords.R
+import com.example.crispywords.base.MainActivity
+import com.example.crispywords.base.Screen
 import com.example.crispywords.di.Injectable
+import com.example.crispywords.ui.add_word_page.AddWordFragment
+import com.example.crispywords.ui.add_word_page.NewWordListener
 import com.example.crispywords.utils.Constants
 import com.example.crispywords.utils.widgets.LineView
 import com.example.crispywords.utils.widgets.SearchWordView
@@ -94,6 +99,30 @@ class MainPageFragment : Fragment(), Injectable {
             setSearchWords()
             foundGridLayout.removeViews(1, foundGridLayout.childCount - 1)
             foundWordsCnt = 0
+        }
+
+        toolbar.getAdd().setOnClickListener {
+            val addWordFragment = AddWordFragment.newInstance()
+            (context as MainActivity).navigateTo(
+                fragment = addWordFragment,
+                tag = Screen.ADD_WORD.name,
+                addToStack = true)
+
+            val newWordListener: NewWordListener = object :
+                NewWordListener {
+                override fun onAddedWord(newWord: String) {
+                    lettersAdapter?.clearLetters()
+                    words = HashMap()
+                    lettersAdapter?.clearUsedPosition()
+                    setAdapter()
+                    wordsContainer.removeAllViews()
+                    viewModel.addSearchWords(newWord)
+                    setSearchWords()
+                    foundGridLayout.removeViews(1, foundGridLayout.childCount - 1)
+                    foundWordsCnt = 0
+                }
+            }
+            addWordFragment.setNewWordListener(newWordListener)
         }
 }
 
@@ -259,7 +288,7 @@ class MainPageFragment : Fragment(), Injectable {
     private fun drawLine(startX: Int, startY: Int, endX: Int, endY: Int){
         val lineView = LineView(context)
         lineView.setPosition(
-            R.color.colorManatee,
+            Color.RED,
             endX.toFloat() - 40f,
             endY.toFloat() - 40f,
             startX.toFloat() - 40f,

@@ -6,6 +6,9 @@ import javax.inject.Inject
 
 class MainPageViewModel @Inject constructor(): ViewModel() {
 
+    val words = mutableListOf("SWIFT", "KOTLIN", "OBJECTIVEC",
+        "VARIABLE", "JAVA", "MOBILE")
+
     fun getRandomLetter(): List<Char> {
 
         val listOfRandomLetter: ArrayList<Char> = arrayListOf()
@@ -21,9 +24,13 @@ class MainPageViewModel @Inject constructor(): ViewModel() {
 
         val listOfSearchWords: ArrayList<String> = arrayListOf()
 
-        for(i in 0 until Constants.WORDS.size){
-            listOfSearchWords.add(Constants.WORDS.get(i))
+        for(i in 0 until words.size){
+            listOfSearchWords.add(words.get(i))
         }
         return listOfSearchWords
+    }
+
+    fun addSearchWords(newWord: String) {
+        words.add(newWord)
     }
 }
